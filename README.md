@@ -2,10 +2,10 @@
 
 Estructura tipo patrón DAO:
 
-- `app/dao/`: acceso a datos SQL.
-- `app/services/`: reglas de negocio/validación.
-- `app/models.py`: entidad Paciente.
-- `app/app.py`: interfaz web Flask.
+- `dao/`: acceso a datos SQL.
+- `services/`: reglas de negocio/validación.
+- `models.py`: entidad Paciente.
+- `app.py`: interfaz web Flask.
 
 ## Variables como secretos en GitHub
 
@@ -24,7 +24,7 @@ Crea estos secretos en tu repositorio (`Settings > Secrets and variables > Actio
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python -m app.app
+python -m app
 ```
 
 

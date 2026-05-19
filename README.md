@@ -18,10 +18,6 @@ Crea estos secretos en tu repositorio (`Settings > Secrets and variables > Actio
 - `DB_PASSWORD`
 - `FLASK_SECRET_KEY`
 
-Luego, en tu workflow, expón los secretos como variables de entorno para ejecutar la app o pruebas.
-
-> Nota: ya no se usa archivo `.env` ni valores por defecto en código. Si falta un secreto, la app falla al iniciar para evitar conexiones inseguras.
-
 ## Ejecutar local
 
 ```bash
@@ -32,12 +28,10 @@ python -m app.app
 ```
 
 
-## ¿Para qué sirve `FLASK_SECRET_KEY`?
+## `FLASK_SECRET_KEY`
 
 Flask la usa para **firmar criptográficamente** cookies de sesión y mensajes flash.
 Si no es segura, un atacante podría manipular datos de sesión.
-
-Recomendaciones:
-- usar un valor largo, aleatorio y privado;
-- guardarlo solo como secreto de GitHub;
-- no subirlo al repositorio.
+```bash
+python -c "import secrets; print(secrets.token_urlsafe(64))"
+```

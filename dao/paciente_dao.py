@@ -1,6 +1,6 @@
 from psycopg2.extras import RealDictCursor
 
-from app.db import get_connection
+from util.db import get_connection
 
 
 class PacienteDAO:

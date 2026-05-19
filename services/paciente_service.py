@@ -1,8 +1,8 @@
 from datetime import date, datetime, time
 from zoneinfo import ZoneInfo
 
-from app.dao.paciente_dao import PacienteDAO
-from app.models import Paciente
+from dao.paciente_dao import PacienteDAO
+from models.paciente import Paciente
 
 
 class PacienteService:

@@ -4,7 +4,8 @@ Estructura tipo patrón DAO:
 
 - `dao/`: acceso a datos SQL.
 - `services/`: reglas de negocio/validación.
-- `models.py`: entidad Paciente.
+- `models/`: entidad Paciente.
+- `util/`: configuración y conexión a base de datos.
 - `app.py`: interfaz web Flask.
 
 ## Variables como secretos en GitHub

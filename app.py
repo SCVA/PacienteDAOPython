@@ -1,7 +1,7 @@
 from flask import Flask, flash, redirect, render_template, request, url_for
 
-from app.config import Config
-from app.services.paciente_service import PacienteService
+from util.config import Config
+from services.paciente_service import PacienteService
 
 
 def create_app():

@@ -1,6 +1,6 @@
 import psycopg2
 
-from config import Config
+from util.config import Config
 
 
 def get_connection():

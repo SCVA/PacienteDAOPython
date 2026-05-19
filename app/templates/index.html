@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pacientes DAO Flask</title>
+</head>
+<body>
+  <h1>Pacientes</h1>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+      <p><strong>{{ category }}:</strong> {{ message }}</p>
+    {% endfor %}
+  {% endwith %}
+
+  <h2>Crear paciente</h2>
+  <form method="post" action="{{ url_for('crear_paciente') }}">
+    <input name="cedula" placeholder="Cédula" required>
+    <input name="fechanac" placeholder="YYYY-MM-DD" required>
+    <input name="primern" placeholder="Primer nombre" required>
+    <input name="segundon" placeholder="Segundo nombre">
+    <input name="primera" placeholder="Primer apellido" required>
+    <input name="segundoa" placeholder="Segundo apellido">
+    <button type="submit">Guardar</button>
+  </form>
+
+  <h2>Listado</h2>
+  <table border="1" cellpadding="6">
+    <tr><th>Cédula</th><th>Nombre</th><th>Apellido</th><th>Fecha Nac.</th><th>Acción</th></tr>
+    {% for p in pacientes %}
+      <tr>
+        <td>{{ p.cedula }}</td>
+        <td>{{ p.primern }} {{ p.segundon or '' }}</td>
+        <td>{{ p.primera }} {{ p.segundoa or '' }}</td>
+        <td>{{ p.fechanac }}</td>
+        <td>
+          <form method="post" action="{{ url_for('eliminar_paciente', cedula=p.cedula) }}">
+            <button type="submit">Eliminar</button>
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

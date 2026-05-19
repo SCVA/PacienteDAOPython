@@ -5,7 +5,7 @@ Copia este archivo como util/config_local.py y reemplaza los valores.
 
 DB_HOST = "localhost"
 DB_PORT = "5432"
-DB_NAME = "hospital"
+DB_NAME = "Hospital"
 DB_USER = "postgres"
 DB_PASSWORD = "postgres"
 FLASK_SECRET_KEY = "kxjQI5Nuk5mgRJrAoYEKMV95wafIk7LnertvQ0PAsCOq9xX410F3kOjcN2MlLPnnpX6qsmzFV8F8TZWe4kwjgg"

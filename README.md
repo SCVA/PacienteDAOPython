@@ -25,6 +25,7 @@ Crea estos secretos en tu repositorio (`Settings > Secrets and variables > Actio
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+cp util/config_local.py.example util/config_local.py
 python -m app
 ```
 

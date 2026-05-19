@@ -1,0 +1,11 @@
+"""Archivo de ejemplo para desarrollo local.
+
+Copia este archivo como util/config_local.py y reemplaza los valores.
+"""
+
+DB_HOST = "localhost"
+DB_PORT = "5432"
+DB_NAME = "mi_base"
+DB_USER = "mi_usuario"
+DB_PASSWORD = "mi_password"
+FLASK_SECRET_KEY = "cambia-esto-por-un-valor-seguro"

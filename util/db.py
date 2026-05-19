@@ -1,7 +1,11 @@
-import psycopg2
 import os
 
+import psycopg2
+
 from util.config import Config
+
+# Evita problemas de decodificación al recibir mensajes de libpq en Windows.
+os.environ.setdefault("PGCLIENTENCODING", "LATIN1")
 
 
 def get_connection():
@@ -14,11 +18,13 @@ def get_connection():
     }
 
     try:
-        return psycopg2.connect(**params)
-    except UnicodeDecodeError:
-        # Fallback útil en algunos entornos Windows donde libpq emite mensajes
-        # de error con codificación local no UTF-8 durante el handshake.
-        os.environ.setdefault("PGCLIENTENCODING", "LATIN1")
         conn = psycopg2.connect(**params)
         conn.set_client_encoding("UTF8")
         return conn
+    except UnicodeDecodeError as exc:
+        raise RuntimeError(
+            "No se pudo abrir la conexión a PostgreSQL por un error de codificación. "
+            "Revisa que DB_HOST, DB_NAME, DB_USER y DB_PASSWORD no tengan caracteres "
+            "copiados con codificación inválida y verifica que tu instalación de PostgreSQL "
+            "en Windows use UTF-8 o LATIN1."
+        ) from exc
